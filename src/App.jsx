@@ -1,42 +1,48 @@
+import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom'
+
 // import img from "./assets/react.svg";
 import { AnimalList } from "./cmps/AnimalList";
 import { SeasonClock } from "./cmps/SeasonClock";
 import { CountDown } from "./cmps/CountDown";
 import { WatcherApp } from "./cmps/WatcherApp";
 import MouseMonitor from "./cmps/MouseMonitor";
+import Home from './cmps/Home';
 
 export function App() {
-  // const animalInfos = [
-  //   { type: "Malayan Tiger", count: 787 },
-  //   { type: "Mountain Gorilla", count: 212 },
-  //   { type: "Fin Whale", count: 28 },
-  // ];
+  const animalInfos = [
+    { type: "Malayan Tiger", count: 787 },
+    { type: "Mountain Gorilla", count: 212 },
+    { type: "Fin Whale", count: 28 },
+  ];
   return (
-    <section className="main-app">
+    <BrowserRouter>
       <header className="container">
-        <h1>React App</h1>
+        <nav>
+          <h1>React Home Work</h1>
+          <NavLink to={'/'}>Home</NavLink>
+          <NavLink to={'/animals-list'}>Animals List</NavLink>
+          <NavLink to={'/season-clock'}>Season Clock</NavLink>
+          <NavLink to={'/countdown'}>Countdown</NavLink>
+          <NavLink to={'/watcher-app'}>Watcher App</NavLink>
+          <NavLink to={'/mouse-monitor'}>Mouse Monitor</NavLink>
+        </nav>
       </header>
 
       <main className="container">
-        <section>
-          {/* <AnimalList animalInfos={animalInfos} /> */}
-
-          {/* <SeasonClock /> */}
-
-          {/* <CountDown
-            startFrom={10}
+        <Routes>
+          <Route index element={<Home />} />
+          <Route path="animals-list" element={<AnimalList animalsInfos={animalInfos} />} />
+          <Route path="season-clock" element={<SeasonClock />} />
+          <Route path="countdown" element={<CountDown startFrom={10}
             // toTime={Date.now() + 1000 * 10}
             onDone={() => {
               console.log("Done!");
-            }}
-          /> */}
+            }} />} />
+          <Route path="watcher-app" element={<WatcherApp />} />
+          <Route path="mouse-monitor" element={<MouseMonitor />} />
+        </Routes>
 
-          {/* <WatcherApp /> */}
-
-          <MouseMonitor />
-
-        </section>
       </main>
-    </section>
+    </BrowserRouter >
   );
 }

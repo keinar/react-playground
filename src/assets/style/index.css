@@ -224,3 +224,7 @@ button:hover{
   bottom: 0;
   right: 0;
 }
+
+nav a{
+  padding: 5px 10px;
+}

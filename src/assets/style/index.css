@@ -1,0 +1,226 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0.5em 0 0.5em;
+  font-family: "Edu VIC WA NT Beginner", cursive;
+  color: black;
+  font-weight: bold;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+/* Dont stretch my Media */
+img,
+embed,
+video,
+object {
+  max-width: 100%;
+}
+
+/* Simple and useful CSS Debugging Technique */
+.debug * {
+  outline: 1px solid gold;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  background-color: #e91e63;
+  justify-content: space-between;
+  color: white;
+}
+
+.container {
+  padding-inline: 8vw;
+}
+
+.simple-counter {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.simple-counter h2 {
+  margin-top: 0;
+}
+
+.btns {
+  display: flex;
+  gap: 10px;
+}
+
+.dark {
+  background-color: #595959;
+  color: white;
+}
+
+.animal-list {
+  background-color: rgb(157, 0, 255);
+}
+
+.animal-list table {
+  margin: auto;
+  padding: 10px;
+}
+
+.animal-list h1 {
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+}
+
+table th,
+table td {
+  border: 1px solid black;
+  text-align: center;
+  padding: 5px;
+}
+
+table th {
+  padding: 0 20px;
+}
+
+.dark {
+  background-color: darkblue;
+  text-align: center;
+  padding: 10px;
+  width: 200px;
+  margin: auto;
+}
+
+.light {
+  background-color: #aed8e6;
+  color: black;
+  text-align: center;
+  padding: 10px;
+  width: 200px;
+  margin: auto;
+}
+
+.running-clock {
+  text-align: center;
+}
+
+.count-down-p {
+  text-align: center;
+  font-size: 40px;
+  padding: 25px;
+  border: double plum 10px;
+  margin: 25px auto;
+}
+
+.wa-main-container{
+    text-align: center;
+    background-color: #E6BFAD;
+    padding: 10px;
+}
+
+.card{
+    background-color: white;
+    color: black;
+    margin: 5px;
+    padding: 20px;
+    width: 250px;
+    border-radius: 10px;
+
+}
+
+.watcher-name{
+  color: black;
+}
+
+.main-card-container{
+  display: flex;
+  justify-content: center;
+}
+
+.model{
+  width: 500px;
+  height: 500px;
+  border-radius: 10px;
+  color: #e91e63;
+}
+
+button{
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+  padding: 5px 25px;
+  margin: 5px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+button:hover{
+  background-color: black;
+  border: 1px solid white;
+  color: white;
+  padding: 5px 25px;
+  margin: 5px;
+  border-radius: 10px;
+}
+
+.modal{
+  background-color: azure;
+  width: 250px;
+  padding: 10px;
+  position: absolute;
+  top: 150px;
+  right: 50px;
+  box-shadow: #0004c2 3px 3px;
+  
+}
+
+.modal-content li {
+  color: black;
+}
+.mouse-position-container{
+  background-color: black;
+  color: white;
+  width: 250px;
+  padding: 20px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}

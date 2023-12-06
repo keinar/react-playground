@@ -2,7 +2,9 @@ import { utilService } from './util.service.js'
 import { storageService } from './async-storage.service.js'
 
 const WATCHER_KEY = 'watcherDB'
-var gFilterBy = { txt: '', movies: [] }
+
+
+// var gFilterBy = { txt: '', movies: [] }
 
 
 export const watcherService = {
@@ -14,23 +16,28 @@ export const watcherService = {
     getEmptyWatcher,
     getNextWatcherId,
     getFilterBy,
-    setFilterBy,
-    createWatchers
+    setFilterBy
 }
 
 async function query() {
     let watchers = await storageService.query(WATCHER_KEY);
 
-    if (gFilterBy.txt) {
-        const regex = new RegExp(gFilterBy.txt, 'i');
-        watchers = watchers.filter(watcher => regex.test(watcher.fullName));
-    }
+    if (!watchers || watchers.length === 0) {
+        watchers = _createWatchers();
+        utilService.saveToStorage(WATCHER_KEY, watchers)
+      }
 
-    if (gFilterBy.movies && gFilterBy.movies.length > 0) {
-        watchers = watchers.filter(watcher =>
-            gFilterBy.movies.every(movie => watcher.movies.includes(movie))
-        );
-    }
+
+    // if (gFilterBy.txt) {
+    //     const regex = new RegExp(gFilterBy.txt, 'i');
+    //     watchers = watchers.filter(watcher => regex.test(watcher.fullName));
+    // }
+
+    // if (gFilterBy.movies && gFilterBy.movies.length > 0) {
+    //     watchers = watchers.filter(watcher =>
+    //         gFilterBy.movies.every(movie => watcher.movies.includes(movie))
+    //     );
+    // }
     return watchers;
 }
 
@@ -76,15 +83,13 @@ async function getNextWatcherId(watcherId) {
     return watchers[idx + 1].id
 }
 
-function createWatchers() {
-    let watchers = utilService.loadFromStorage(WATCHER_KEY)
-    if (!watchers || !watchers.length) {
-        watchers = []
+function _createWatchers() {
+        const watchers = []
         watchers.push(_createWatcher('puki', ['Rambo', 'Rocky']))
         watchers.push(_createWatcher('muki', ['Rambo', 'Rocky']))
         watchers.push(_createWatcher('shuki', ['Rambo', 'Rocky']))
-        utilService.saveToStorage(WATCHER_KEY, watchers)
-    }
+        
+        return watchers
 }
 
 function _createWatcher(fullName, movies) {

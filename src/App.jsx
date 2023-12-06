@@ -32,12 +32,12 @@ export function App() {
         <Routes>
           <Route index element={<Home />} />
           <Route
-            path="animals-list"
+            path="/animals-list"
             element={<AnimalList animalsInfos={animalInfos} />}
           />
-          <Route path="season-clock" element={<SeasonClock />} />
+          <Route path="/season-clock" element={<SeasonClock />} />
           <Route
-            path="countdown"
+            path="/countdown"
             element={
               <CountDown
                 startFrom={10}
@@ -48,8 +48,8 @@ export function App() {
               />
             }
           />
-          <Route path="watcher-app" element={<WatcherApp />} />
-          <Route path="mouse-monitor" element={<MouseMonitor />} />
+          <Route path="/watcher-app" element={<WatcherApp />} />
+          <Route path="/mouse-monitor" element={<MouseMonitor />} />
         </Routes>
       </main>
     </BrowserRouter>

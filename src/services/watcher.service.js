@@ -3,10 +3,6 @@ import { storageService } from './async-storage.service.js'
 
 const WATCHER_KEY = 'watcherDB'
 
-
-// var gFilterBy = { txt: '', movies: [] }
-
-
 export const watcherService = {
     query,
     get,
@@ -15,8 +11,6 @@ export const watcherService = {
     save,
     getEmptyWatcher,
     getNextWatcherId,
-    getFilterBy,
-    setFilterBy
 }
 
 async function query() {
@@ -27,17 +21,6 @@ async function query() {
         utilService.saveToStorage(WATCHER_KEY, watchers)
       }
 
-
-    // if (gFilterBy.txt) {
-    //     const regex = new RegExp(gFilterBy.txt, 'i');
-    //     watchers = watchers.filter(watcher => regex.test(watcher.fullName));
-    // }
-
-    // if (gFilterBy.movies && gFilterBy.movies.length > 0) {
-    //     watchers = watchers.filter(watcher =>
-    //         gFilterBy.movies.every(movie => watcher.movies.includes(movie))
-    //     );
-    // }
     return watchers;
 }
 
@@ -64,16 +47,6 @@ function save(watcher) {
 
 function getEmptyWatcher(fullName = '', movies = []) {
     return { id: '', fullName, movies }
-}
-
-function getFilterBy() {
-    return { ...gFilterBy }
-}
-
-function setFilterBy(filterBy = {}) {
-    if (filterBy.txt !== undefined) gFilterBy.txt = filterBy.txt
-    if (filterBy.movies !== undefined) gFilterBy.movies = filterBy.movies
-    return gFilterBy
 }
 
 async function getNextWatcherId(watcherId) {

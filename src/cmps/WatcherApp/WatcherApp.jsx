@@ -1,10 +1,4 @@
 import { useEffect, useState } from "react";
-import {
-  WatcherCard,
-  WatcherCardBody,
-  WatcherCardFooter,
-  WatcherCardHeader,
-} from "./WatcherCard";
 import { watcherService } from "../../services/watcher.service";
 import { WatcherList } from "./WatcherList";
 import { WatcherDetails } from "./WatcherDetails";
@@ -17,14 +11,14 @@ export function WatcherApp() {
     loadWatchers();
   }, []);
 
-  const loadWatchers = async () => {
+  async function loadWatchers() {
     try {
-      let watcherList = await watcherService.query();
-      setWatchers(watcherList);
+      let watchersFromDB = await watcherService.query();
+      setWatchers(watchersFromDB);
     } catch (err) {
       console.error("Error loading watchers:", err);
     }
-  };
+  }
 
   async function handleRemove(watcherId) {
     try {
@@ -58,7 +52,7 @@ export function WatcherApp() {
 
   return (
     <section className="wa-main-container">
-      <h1>Watcher App</h1>
+      <h1 style={{ color: "white" }}>Watcher App</h1>
       <button onClick={addWatcher}>Add Watcher</button>
 
       <section className="main-card-container">

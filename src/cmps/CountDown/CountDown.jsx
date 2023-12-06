@@ -1,28 +1,28 @@
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef } from "react";
 
 export function CountDown({ startFrom, onDone, toTime }) {
-  const [hasStarted, setHasStarted] = useState(false)
-  const [count, setCount] = useState(toTime ? toTime : startFrom)
-  const timerIntervalRef = useRef()
-  const audio = new Audio("../../src/assets/style/alram.mp3")
+  const [hasStarted, setHasStarted] = useState(false);
+  const [count, setCount] = useState(toTime ? toTime : startFrom);
+  const timerIntervalRef = useRef();
+  const audio = new Audio("../../src/assets/style/alram.mp3");
 
   useEffect(() => {
     if (hasStarted && count > 0) {
       timerIntervalRef.current = setInterval(() => {
-        setCount((prevCount) => prevCount - 1)
-      }, 1000)
+        setCount((prevCount) => prevCount - 1);
+      }, 1000);
     } else if (count <= 0) {
       clearInterval(timerIntervalRef.current);
-      onDone()
-      audio.play()
+      onDone();
+      audio.play();
     }
 
     return () => clearInterval(timerIntervalRef.current); // Clear interval on unmount
   }, [hasStarted, count]);
 
   const handleStartClick = () => {
-    setHasStarted((prev) => !prev)
-  }
+    setHasStarted((prev) => !prev);
+  };
 
   return (
     <>
@@ -35,7 +35,10 @@ export function CountDown({ startFrom, onDone, toTime }) {
           {!hasStarted ? "START" : "STOP"}
         </button>
 
-        <p className="count-down-p" style={{ color: count <= 6 ? 'red' : 'white' }}>
+        <p
+          className="count-down-p"
+          style={{ color: count <= 6 ? "red" : "white" }}
+        >
           {count}
         </p>
       </section>

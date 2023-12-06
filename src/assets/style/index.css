@@ -152,7 +152,6 @@ table th {
 
 .wa-main-container{
     text-align: center;
-    background-color: #E6BFAD;
     padding: 10px;
 }
 
@@ -227,4 +226,15 @@ button:hover{
 
 nav a{
   padding: 5px 10px;
+}
+
+.watcher-list{
+
+  display: flex;
+}
+.watcher-preview{
+  margin: 5px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 20px;
 }

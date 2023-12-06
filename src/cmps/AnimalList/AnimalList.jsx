@@ -14,11 +14,13 @@ export function AnimalList({ animalsInfos }) {
             <th>Search Link</th>
           </tr>
         </thead>
+        <tbody>
         {
           animalsInfos.map((animal) => (
             <AnimalPrev animal={animal} key={animal.type} />
           ))
         }
+        </tbody>
       </table>
     </>
 

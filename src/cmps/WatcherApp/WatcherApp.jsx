@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from "react";
 import { WatcherCard, WatcherCardBody, WatcherCardFooter, WatcherCardHeader } from "./WatcherCard";
-import { watcherService } from "../services/watcher.service";
+import { watcherService } from "../../services/watcher.service";
 
 
 export function WatcherApp() {

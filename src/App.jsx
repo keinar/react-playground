@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom'
 
 // import img from "./assets/react.svg";
-import { AnimalList } from "./cmps/AnimalList";
-import { SeasonClock } from "./cmps/SeasonClock";
-import { CountDown } from "./cmps/CountDown";
-import { WatcherApp } from "./cmps/WatcherApp";
-import MouseMonitor from "./cmps/MouseMonitor";
+import { AnimalList } from "./cmps/AnimalList/AnimalList";
+import { SeasonClock } from "./cmps/SeasonClock/SeasonClock";
+import { CountDown } from "./cmps/CountDown/CountDown";
+import { WatcherApp } from "./cmps/WatcherApp/WatcherApp";
+import MouseMonitor from "./cmps/MouseMonitor/MouseMonitor";
 import Home from './cmps/Home';
 
 export function App() {

@@ -1,4 +1,4 @@
-import { utilService } from "../services/util.service";
+import { utilService } from "../../services/util.service";
 import React, { useEffect, useState } from "react";
 
 export function SeasonClock() {
@@ -32,7 +32,7 @@ export function SeasonClock() {
           {utilService.getMonthName(date)} ({utilService.getSeason()})
         </h1>
         <img
-          src={getImgUrl("../assets/style/" + utilService.getSeason() + ".png")}
+          src={getImgUrl("../../assets/style/" + utilService.getSeason() + ".png")}
         />
         <p>{utilService.getDayName(date)}</p>
       </section>

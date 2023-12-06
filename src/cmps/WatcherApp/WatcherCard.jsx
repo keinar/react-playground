@@ -1,4 +1,4 @@
-import demo from "../assets/style/spring.png"
+import demo from "../../assets/style/spring.png"
 
 export function WatcherCard({ children }) {
     return (
